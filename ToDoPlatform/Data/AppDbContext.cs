@@ -19,6 +19,8 @@ public class AppDbContext : IdentityDbContext<AppUser>
     {
         base.OnModelCreating(builder);
 
+        AppDbSeed appDbSeed = new(builder);
+
         #region Configuração das Tabelas do Identity
         builder.Entity<AppUser>().ToTable("users");
         builder.Entity<IdentityRole>().ToTable("roles");
